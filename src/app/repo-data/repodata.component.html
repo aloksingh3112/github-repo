@@ -11,10 +11,13 @@
         <h6>Open Issue: {{data?.open_issues_count}}</h6>
         <h6>Stars: {{data?.stargazers_count}}</h6>
       </div>
-      <div class="col-md-6"> <ngb-accordion #acc="ngbAccordion">
-          <ngb-panel title="Contributors">
+      <div class="col-md-6">
+        <ngb-accordion #acc="ngbAccordion" (click)='getContributors(data.name,data.owner.login)'>
+          <ngb-panel title="Contributors" >
             <ng-template ngbPanelContent>
-
+             <div *ngFor='let cont of contributors'>
+                <p>{{cont?.login}}</p>
+             </div>
             </ng-template>
           </ngb-panel>
     </ngb-accordion></div>

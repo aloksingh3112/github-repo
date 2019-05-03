@@ -6,7 +6,7 @@ import { throwError,of } from 'rxjs';
 @Injectable()
 export class AppService{
   public repoData:any[];
-  errorMessage;
+
 constructor(private http: HttpClient){
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
 
 
 @Component({
@@ -10,5 +10,13 @@ import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 export class RepoDataComponent{
 
   @Input() repolist: any[];
+  @Input() contributors: any[];
+  @Output() contributorData=new EventEmitter<{reponame: string,username: string}>();
+
+  getContributors(reponame,username){
+
+    this.contributorData.emit({reponame, username})
+
+}
 
 }

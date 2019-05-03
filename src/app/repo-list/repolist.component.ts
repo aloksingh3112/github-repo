@@ -10,6 +10,7 @@ import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 })
 export class RepoListComponent implements DoCheck{
   repoList: any[] = [];
+  contributorsList: any[]= [];
   constructor(private appService: AppService){}
   ngDoCheck(): void {
 
@@ -21,16 +22,25 @@ export class RepoListComponent implements DoCheck{
             return (b.stargazers_count - a.stargazers_count)
            });
            this.repoList = [...data];
-           console.log(this.repoList)
-         } else{
-           this.appService.errorMessage= 'No Repo Found'
+
          }
 
        }
       },
-      err=>console.log(err)
+      err=>{}
     ))
 
+  }
+
+  getContributors(data){
+   this.appService.searchContributors(data.reponame,data.username)
+    .subscribe(
+      (repodata: any[]) =>{
+        console.log(repodata);
+        this.contributorsList= [...repodata]
+      },
+      err=>console.log(err)
+    )
   }
 
 }
