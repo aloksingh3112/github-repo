@@ -17,9 +17,12 @@ export class RepoListComponent implements DoCheck{
       (data: any[])=>{
        if(data){
          if(data.length>0){
-        this.repoList = [...data];
-         }
-         else{
+           data.sort((a,b)=>{
+            return (b.stargazers_count - a.stargazers_count)
+           });
+           this.repoList = [...data];
+           console.log(this.repoList)
+         } else{
            this.appService.errorMessage= 'No Repo Found'
          }
 

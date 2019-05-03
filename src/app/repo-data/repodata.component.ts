@@ -1,10 +1,11 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy } from '@angular/core';
 
 
 @Component({
   selector:'app-repodata',
   templateUrl:'./repodata.component.html',
-  styleUrls:['./repodata.component.scss']
+  styleUrls:['./repodata.component.scss'],
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class RepoDataComponent{
 
