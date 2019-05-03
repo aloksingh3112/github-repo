@@ -1,3 +1,4 @@
+import { AppService } from './app.service';
 import { InputComponent } from './input/input.component';
 import { RepoListComponent } from './repo-list/repolist.component';
 import { RepoDataComponent } from './repo-data/repodata.component';
@@ -19,7 +20,7 @@ import { AppComponent } from './app.component';
     BrowserModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AppService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

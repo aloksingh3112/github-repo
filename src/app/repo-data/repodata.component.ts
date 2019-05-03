@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 
 @Component({
@@ -6,4 +6,8 @@ import { Component } from '@angular/core';
   templateUrl:'./repodata.component.html',
   styleUrls:['./repodata.component.scss']
 })
-export class RepoDataComponent{}
+export class RepoDataComponent{
+
+  @Input() repolist: any[];
+
+}
