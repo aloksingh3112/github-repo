@@ -36,10 +36,10 @@ export class RepoListComponent implements DoCheck{
    this.appService.searchContributors(data.reponame,data.username)
     .subscribe(
       (repodata: any[]) =>{
-        console.log(repodata);
+        
         this.contributorsList= [...repodata]
       },
-      err=>console.log(err)
+      err=>{}
     )
   }
 

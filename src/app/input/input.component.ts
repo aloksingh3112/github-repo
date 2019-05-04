@@ -18,7 +18,7 @@ export class InputComponent{
      .subscribe(
 
        (list:[])=>this.appService.repoData=[...list],
-       err =>this.appService.errorMessage=err
+       err =>{}
      )
   }
 
