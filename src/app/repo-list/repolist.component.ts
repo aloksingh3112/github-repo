@@ -10,7 +10,7 @@ import { Component, OnInit, OnChanges, DoCheck } from '@angular/core';
 })
 export class RepoListComponent implements DoCheck{
   repoList: any[] = [];
-  contributorsList: any[]= [];
+  contributorsList={fetchedRepos:{}};
   constructor(private appService: AppService){}
   ngDoCheck(): void {
 
@@ -35,10 +35,11 @@ export class RepoListComponent implements DoCheck{
   getContributors(data){
    this.appService.searchContributors(data.reponame,data.username)
     .subscribe(
-      (repodata: any[]) =>{
-        
-        this.contributorsList= [...repodata]
-      },
+      (repodata) =>{
+        console.log(repodata)
+        console.log(this.contributorsList)
+        this.contributorsList= {fetchedRepos:{...this.contributorsList["fetchedRepos"],[data.reponame]:repodata}}
+        },
       err=>{}
     )
   }

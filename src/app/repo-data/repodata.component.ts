@@ -1,4 +1,4 @@
-import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from '@angular/core';
+import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter, DoCheck } from '@angular/core';
 
 
 @Component({
@@ -7,10 +7,10 @@ import { Component, Input, ChangeDetectionStrategy, Output, EventEmitter } from 
   styleUrls:['./repodata.component.scss'],
   changeDetection:ChangeDetectionStrategy.OnPush
 })
-export class RepoDataComponent{
+export class RepoDataComponent {
 
   @Input() repolist: any[];
-  @Input() contributors: any[];
+  @Input() contributors: any;
   @Output() contributorData=new EventEmitter<{reponame: string,username: string}>();
 
   getContributors(reponame,username){

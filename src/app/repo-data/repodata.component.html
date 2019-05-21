@@ -15,7 +15,7 @@
         <ngb-accordion #acc="ngbAccordion" (click)='getContributors(data.name,data.owner.login)'>
           <ngb-panel title="Contributors" >
             <ng-template ngbPanelContent>
-             <div *ngFor='let cont of contributors'>
+             <div *ngFor='let cont of contributors["fetchedRepos"][data.name]'>
                 <p>{{cont?.login}}</p>
              </div>
             </ng-template>
